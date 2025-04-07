@@ -1,0 +1,24 @@
+# .gitignore
+
+# Ignore large data
+data/train/*
+data/valid/*
+data/test/*
+!data/train/README.md
+!data/valid/README.md
+!data/test/README.md
+
+# Ignore YOLO runs (heavy outputs) except train7 do
+runs/detect/*
+
+# Python cache
+__pycache__/
+*.py[cod]
+
+# Virtual environment folders
+venv/
+env/
+
+# OS-specific files
+.DS_Store
+Thumbs.db

@@ -1,0 +1,6 @@
+train: "D:/Codes/pestProject/pestIdentifier/data/train/images"
+val: "D:/Codes/pestProject/pestIdentifier/data/valid/images"
+test: "D:/Codes/pestProject/pestIdentifier/data/test/images"
+
+nc: 4  
+names: ['FruitMoth', 'Gall.Flies', 'Locust', 'stem.Borer']
