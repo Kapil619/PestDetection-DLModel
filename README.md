@@ -34,6 +34,7 @@ PestDetection-Project/
 |           ├── last.pt  
 │   └── predict/         # ✅ Folders generated while inference
 ├── data.yaml
+├── best.pt              # ✅ Trained Model given for testing
 ├── requirements.txt
 ├── README.md
 ```
@@ -84,6 +85,15 @@ After training, the model checkpoint best.pt will be saved in one of the run fol
 
 ```bash
 yolo task=detect mode=predict model=runs/detect/train/weights/best.pt source=path/to/test_images
+```
+
+
+### Running Inference with pretrained model
+
+After training, the model checkpoint best.pt will be saved in one of the run folders (e.g., runs/train7/). This file is used for inference.
+
+```bash
+yolo task=detect mode=predict model=best.pt source=path/to/test_images
 ```
 
 ## Integration with Other Components
