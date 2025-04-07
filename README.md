@@ -7,19 +7,6 @@ A YOLOv8-powered deep learning project for real-time pest detection in agricultu
 
 ---
 
-## 📚 Table of Contents
-
-- [📝 Overview](#-overview)
-- [📁 Project Structure](#-project-structure)
-- [⚙️ Setup](#-setup)
-  - [💻 Virtual Environment](#-virtual-environment)
-  - [📦 Dependencies](#-dependencies)
-- [🎯 Training the Model](#-training-the-model)
-- [📊 Evaluation Metrics](#-evaluation-metrics)
-- [🚀 Running Inference](#-running-inference)
-
----
-
 ## 📝 Overview
 
 This project uses the **YOLOv8n** (nano variant) model to detect pests in images. The dataset is split into `train`, `valid`, and `test` sets. After training, the best model checkpoint (`best.pt`) is used for real-time inference via an API.
@@ -41,11 +28,14 @@ PestDetection-Project/
 │       ├── images/
 │       └── labels/
 ├── runs/
-│   └── train7/         # ✅ Only this folder is tracked
+│   └── train/           # ✅ Folders generated while training
+│       ├── weights/
+|           ├── best.pt  # ✅ Trained Model
+|           ├── last.pt  
+│   └── predict/         # ✅ Folders generated while inference
 ├── data.yaml
 ├── requirements.txt
 ├── README.md
-└── [Other files/scripts]
 ```
 
 ## Setup
@@ -93,15 +83,13 @@ yolo task=detect mode=train model=yolov8n.pt data=data.yaml epochs=70 imgsz=640 
 After training, the model checkpoint best.pt will be saved in one of the run folders (e.g., runs/train7/). This file is used for inference.
 
 ```bash
-yolo task=detect mode=predict \
-  model=runs/detect/train/weights/best.pt \
-  source=path/to/test_images
+yolo task=detect mode=predict model=runs/detect/train/weights/best.pt source=path/to/test_images
 ```
 
-### Integration with Other Components
+## Integration with Other Components
 
-Flask API (PestDetection-API Repository):
-The trained model (best.pt) is integrated into a Flask API that exposes endpoints such as /predict and /capture for remote inference.
+### Flask API (PestDetection-API Repository):
+- The trained model (best.pt) is integrated into a Flask API that exposes endpoints such as /predict and /capture for remote inference.
 
-Mobile Application (PestDetection Repository):
-The mobile app communicates with the Flask API to display detection results to the user
+### Mobile Application (PestDetection Repository):
+- The mobile app communicates with the Flask API to display detection results to the user
