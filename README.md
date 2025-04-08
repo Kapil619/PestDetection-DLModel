@@ -41,6 +41,10 @@ PestDetection-Project/
 
 ## Setup
 
+### Download dataset
+
+Dataset: https://drive.google.com/drive/folders/1kvAxbN4ldyrNJknZstQsefrz0pqQ5vHp
+
 ### Virtual Environment
 
 We highly recommend using a Python virtual environment to manage dependencies. To create and activate the virtual environment, run the following commands:
